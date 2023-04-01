@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/freestyle.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Bookshop</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container container_header">
+        <a href="#" class="logo">Bookshop</a>
+        <ul class="menu__list">
+          <li class="menu__item menu__item_active">books</li>
+          <li class="menu__item">audiobooks</li>
+          <li class="menu__item">Stationery & gifts</li>
+          <li class="menu__item">blog</li>
+        </ul>
+        <ul class="menu">
+          <a href="#" class="menu__btn"
+            ><img src="./user.svg" alt="" class="menu__btn_img"
+          /></a>
+          <a href="#" class="menu__btn"
+            ><img src="./search.svg" alt="" class="menu__btn_img"
+          /></a>
+          <a href="#" class="menu__btn cart"
+            ><img src="./shop-bag.svg" alt="" class="menu__btn_img"
+          /><i class="fas fa-shopping-cart"></i>
+          <div class="cart-badge"></div>
+          </a>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <section class="news">
+        <div class="container container_news">
+          <div class="news__image">
+            <img src="./promo1.png" alt="promo" class="promo1" />
+            <img src="./promo2.png" alt="promo" class="promo2" />
+            <div class="flex-wrap">
+              <div class="slide active">
+                <img src="./banner1.png" class="news__img" alt="news" />
+              </div>
+              <div class="slide">
+                <img src="./banner2.png" class="news__img" alt="news" />
+              </div>
+              <div class="slide">
+                <img src="./banner3.png" class="news__img" alt="news" />
+              </div>
+            </div>
+            <div class="dots">
+              <span class="dot dot_active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="library">
+        <div class="container container_library">
+          <div class="categories">
+            <ul id="categories__list" class="categories__list">
+              <li class="categories__item categories__item_active">
+                Architecture
+              </li>
+              <li class="categories__item">Art & Fashion</li>
+              <li class="categories__item">Biography</li>
+              <li class="categories__item">Business</li>
+              <li class="categories__item">Crafts & Hobbies</li>
+              <li class="categories__item">Drama</li>
+              <li class="categories__item">Fiction</li>
+              <li class="categories__item">Food & Drink</li>
+              <li class="categories__item">Health & Wellbeing</li>
+              <li class="categories__item">History & Politics</li>
+              <li class="categories__item">Humor</li>
+              <li class="categories__item">Poetry</li>
+              <li class="categories__item">Psychology</li>
+              <li class="categories__item">Science</li>
+              <li class="categories__item">Technology</li>
+              <li class="categories__item">Travel & Maps</li>
+            </ul>
+          </div>
+          <ul id="books"></ul>
+          
+        </div>
+        <button class="books__btn more">Load more</button>
+      </section>
+    </main>
+    <footer><div class="container"></div></footer>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
