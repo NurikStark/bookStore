@@ -1,45 +1,27 @@
-const header = document.querySelector('.header');
-import './style/freestyle.css'
-import './style/style.scss'
-import './assets/banner1.png'
-import './assets/banner2.png'
-import './assets/banner3.png'
-import './assets/promo1.png'
-import './assets/promo2.png'
-import './assets/search.svg'
-import './assets/shop-bag.svg'
-import './assets/user.svg'
-import { nextSlide, prevSlide, activeDot, activeSlide, slides, dots } from "./scripts/slide.js";
-import { addToCart, updateCartBadge } from './scripts/cartbadge.js';
-import { btnMore } from './scripts/morebook.js';
-import { tabs, tabsEl, changeClass } from './scripts/categories.js';
-function handleScroll() {
-  if (window.pageYOffset > 0) {
-    header.classList.add('fixed');
-  } else {
-    header.classList.remove('fixed');
-  }
-}
-window.addEventListener('scroll', handleScroll);
-const startIndex = document.querySelectorAll("#books li").length;
-const url = `https://www.googleapis.com/books/v1/volumes?q=subject:Business&printType=books&startIndex=${startIndex}&maxResults=6&langRestrict=en&key=AIzaSyADrMEBjurCdW1c5BLdoMLRxBI_yhWmLOw`;
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    const books = data.items.map((item) => {
-      const book = {
-        title: item.volumeInfo.title,
-        authors: item.volumeInfo.authors,
-        thumbnail: item.volumeInfo.imageLinks.thumbnail,
-        previewLink: item.volumeInfo.previewLink,
-        averageRating: item.volumeInfo.averageRating,
-        ratingsCount: item.volumeInfo.ratingsCount,
-        description: item.volumeInfo.description,
-        price: item.saleInfo && item.saleInfo.retailPrice,
-      };
-      return book;
-    });
-    const bookList = document.querySelector("#books");
+import { addToCart, updateCartBadge } from '../scripts/cartbadge.js';
+
+export const btnMore = document.querySelector(".more");
+  btnMore.addEventListener("click", () => {
+    const startIndex = document.querySelectorAll("#books li").length;
+    const url = `https://www.googleapis.com/books/v1/volumes?q=subject:Business&printType=books&startIndex=${startIndex}&maxResults=6&langRestrict=en&key=AIzaSyADrMEBjurCdW1c5BLdoMLRxBI_yhWmLOw`;
+  
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const books = data.items.map((item) => {
+          const book = {
+            title: item.volumeInfo.title,
+            authors: item.volumeInfo.authors,
+            thumbnail: item.volumeInfo.imageLinks.thumbnail,
+            previewLink: item.volumeInfo.previewLink,
+            averageRating: item.volumeInfo.averageRating,
+            ratingsCount: item.volumeInfo.ratingsCount,
+            description: item.volumeInfo.description,
+            price: item.saleInfo && item.saleInfo.retailPrice,
+          };
+          return book;
+        });
+        const bookList = document.querySelector("#books");
     books.forEach((book) => {
       const li = document.createElement("li");
       const img = document.createElement("img");
@@ -109,4 +91,4 @@ fetch(url)
       bookList.appendChild(li);
     });
 })
-
+  })
